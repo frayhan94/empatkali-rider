@@ -1,0 +1,3 @@
+[submodule "libs/svc-response"]
+	path = libs/svc-response
+	url = https://gitlab.com/juraganpos/svc-response.git

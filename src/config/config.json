@@ -1,0 +1,23 @@
+{
+  "development": {
+    "username": "root",
+    "password": "someuser",
+    "database": "empatkali",
+    "host": "localhost",
+    "dialect": "mysql"
+  },
+  "test": {
+    "username": "root",
+    "password": "178152338aA.!",
+    "database": "someuser",
+    "host": "localhost",
+    "dialect": "mysql"
+  },
+  "production": {
+    "username": "someuser",
+    "password": "someuser",
+    "database": "some_database",
+    "host": "some_host",
+    "dialect": "mysql"
+  }
+}

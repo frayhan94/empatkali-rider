@@ -1,0 +1,7 @@
+package-lock.json
+.next
+node_modules/
+src/config/*
+src/coverage/*
+src/spec/*
+src/public/*

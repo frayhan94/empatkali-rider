@@ -1,0 +1,7 @@
+src/config/*
+src/coverage/*
+src/spec/*
+src/public/*
+node_modules/*
+
+

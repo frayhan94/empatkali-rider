@@ -1,0 +1,68 @@
+{
+  "name": "empat-kali-test",
+  "version": "1.0.0",
+  "description": "Empatkali test",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "start-coverage": "nyc --silent nodemon app.js",
+    "test": "./node_modules/.bin/cypress open",
+    "coverage:report": "npx nyc report --reporter=html",
+    "pre:migrate:development": "NODE_ENV=development node scripts/createDB.js",
+    "pre:migrate:test": "NODE_ENV=test node scripts/createDB.js",
+    "pre:migrate:production": "NODE_ENV=production node scripts/createDB.js",
+    "migrate:development": "npm run pre:migrate:development && ./node_modules/.bin/sequelize db:migrate --env development",
+    "migrate:test": "npm run pre:migrate:test && ./node_modules/.bin/sequelize db:migrate --env test",
+    "migrate:production": "npm run pre:migrate:production && ./node_modules/.bin/sequelize db:migrate --env production",
+    "seed:development": "./node_modules/.bin/sequelize db:seed:all --debug --env development",
+    "seed:single:development": "./node_modules/.bin/sequelize db:seed --seed src/seeders/201910290634001-navigation.js  --env development",
+    "lint": "node ./node_modules/eslint/bin/eslint.js src/",
+    "fix-lint": "node ./node_modules/eslint/bin/eslint.js --fix src/",
+    "pretty": "./node_modules/.bin/prettier --write src/**/*.js"
+  },
+  "author": "Faris Rayhan",
+  "license": "ISC",
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "src/**/*.{js,jsx}": [
+      "npm run lint",
+      "git add"
+    ]
+  },
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "cors": "^2.8.5",
+    "db-migrate": "^0.11.3",
+    "dotenv": "^7.0.0",
+    "express": "^4.16.3",
+    "istanbul-lib-coverage": "3.0.0",
+    "mysql": "^2.16.0",
+    "mysql2": "^1.6.1",
+    "nyc": "15.1.0",
+    "sequelize": "^4.44.3",
+    "sequelize-cli": "^5.5.1",
+    "winston": "^3.3.3"
+  },
+  "devDependencies": {
+    "@babel/core": "7.11.1",
+    "babel-loader": "8.1.0",
+    "babel-plugin-istanbul": "6.0.0",
+    "eslint": "^6.1.0",
+    "eslint-config-airbnb": "^18.0.1",
+    "eslint-config-node": "^4.0.0",
+    "eslint-config-prettier": "^6.9.0",
+    "eslint-plugin-import": "^2.20.0",
+    "eslint-plugin-node": "^11.0.0",
+    "eslint-plugin-prettier": "^3.1.2",
+    "eslint-plugin-react": "^7.17.0",
+    "faker": "^4.1.0",
+    "husky": "^3.0.4",
+    "istanbul": "^1.1.0-alpha.1",
+    "lint-staged": "^9.2.5",
+    "prettier": "^1.19.1"
+  }
+}
